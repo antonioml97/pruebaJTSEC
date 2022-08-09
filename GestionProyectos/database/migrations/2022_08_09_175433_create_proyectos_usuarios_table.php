@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('proyectos_id');
             $table->unsignedBigInteger('usuarios_id');
-
+            $table->string('rol');
 
             $table->foreign('proyectos_id')->references('id')->on('proyectos')->onDelete('cascade');
             $table->foreign('usuarios_id')->references('id')->on('users')->onDelete('cascade');
