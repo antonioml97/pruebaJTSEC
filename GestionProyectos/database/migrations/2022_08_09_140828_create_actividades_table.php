@@ -19,10 +19,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('proyecto_id');
             $table->string('nombre_actividad');
-            $table->string('incidencias')->nuleable();
-            $table->string('usuarios')->nuleable();
 
-            $table->foreign('proyecto_id')->references('id')->on('proyectos');
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');
         });
     }
 
