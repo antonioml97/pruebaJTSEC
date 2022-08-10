@@ -11,8 +11,14 @@ class Proyectos extends Model
 
     protected $table = "proyectos";
 
-    public function obtenerTodosProyectos()
+    public static function obtenerTodosProyectos()
     {
         return Proyectos::all();
+    }
+    public static function crearProyecto($datos)
+    {
+        $proyecto = new Proyectos();
+        $proyecto->nombre_proyecto = $datos['nombre_proyecto'];
+        $proyecto->save();
     }
 }

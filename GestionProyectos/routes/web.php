@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProyectosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::get('/menu', function () {
     return view('Menu');
 });
 
+Route::post('/proyectos/crearProyecto', [ProyectosController::class, 'crearProyecto' ])->name("crearProyecto");
