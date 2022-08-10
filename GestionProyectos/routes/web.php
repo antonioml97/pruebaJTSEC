@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectosController;
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\ProyectoActividadesController;
+use App\Http\Controllers\ProyectosUsuariosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,4 @@ Route::get('/menu', function () {
 Route::post('/proyectos/crearProyecto', [ProyectosController::class, 'crearProyecto' ])->name("crearProyecto");
 Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
 Route::post('/proyecto_actividades/crearProyectoActividades', [ProyectoActividadesController::class, 'crearProyectoActividades' ])->name("crearProyectoActividades");
+Route::post('/proyecto_usuario/crearProyectosUsuarios', [ProyectosUsuariosController::class, 'crearProyectosUsuarios' ])->name("crearProyectosUsuarios");
