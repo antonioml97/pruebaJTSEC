@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectosController;
-
+use App\Http\Controllers\ActividadesController;
+use App\Http\Controllers\ProyectoActividadesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,7 @@ Route::get('/menu', function () {
     return view('Menu');
 });
 
+
 Route::post('/proyectos/crearProyecto', [ProyectosController::class, 'crearProyecto' ])->name("crearProyecto");
+Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
+Route::post('/proyecto_actividades/crearProyectoActividades', [ProyectoActividadesController::class, 'crearProyectoActividades' ])->name("crearProyectoActividades");
