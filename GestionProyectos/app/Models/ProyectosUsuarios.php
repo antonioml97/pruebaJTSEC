@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProyectosUsuarios extends Model
 {
     use HasFactory;
+    protected $table = "proyectos_usuarios";
 
     public static function crearProyectosUsuariosBD($datos){
         $proyectos_usuarios = new ProyectosUsuarios();

@@ -15,10 +15,10 @@ class ProyectoUsuarioTest extends TestCase
         $test_proyecto_usuario = [
             'proyectos_id' => Proyectos::all()->random()->id,
             'usuarios_id' => User::all()->random()->id,
-            'rol' => 'Participante',
+            'rol' => 'Participante'
         ];
 
-        $response = $this->post( 'http://localhost:8000/proyecto_usuario/crearProyectosUsuarios',  $test_proyecto_usuario );
+        $response = $this->post('http://localhost:8000/proyecto_usuario/crearProyectosUsuarios',  $test_proyecto_usuario );
         $response->assertStatus(200);
         $this->assertDatabaseHas('proyectos_usuarios',  $test_proyecto_usuario);
     }
