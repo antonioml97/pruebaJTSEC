@@ -6,6 +6,7 @@ use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\ProyectoActividadesController;
 use App\Http\Controllers\ProyectosUsuariosController;
 use App\Http\Controllers\ActividadesUsuarioController;
+use App\Http\Controllers\ActividadesIncidenciasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,5 @@ Route::post('/proyecto_usuario/crearProyectosUsuarios', [ProyectosUsuariosContro
 //Activides
 Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
 Route::post('/actividades_usuario/crearActividadesUsuario', [ActividadesUsuarioController::class, 'crearActividadesUsuario' ])->name("crearActividadesUsuario");
+Route::post('/actividades_incidencias/crearActividadesIncidencias', [ActividadesIncidenciasController::class, 'crearActividadesIncidencias' ])->name("crearActividadesIncidencias");
 
