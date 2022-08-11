@@ -20,6 +20,8 @@ class ProyectosUsuariosFactory extends Factory
         return [
             "proyectos_id" => Proyectos::all()->random()->id,
             "usuarios_id" => User::all()->random()->id,
+            'rol' => 'Participante'
+
         ];
     }
 }

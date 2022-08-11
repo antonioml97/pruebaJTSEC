@@ -15,7 +15,6 @@ class ActividadesUsuarioTest extends TestCase
         $test_actividades_usuario = [
             'actividades_id' => Actividades::all()->random()->id,
             'usuario_id' => User::all()->random()->id,
-            'rol' => 'Participante',
         ];
 
         $response = $this->post( 'http://localhost:8000/actividades_usuario/crearActividadesUsuario',  $test_actividades_usuario );
