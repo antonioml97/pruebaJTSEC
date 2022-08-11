@@ -9,4 +9,14 @@ class ActividadesUsuario extends Model
 {
     use HasFactory;
     protected $table = "actividades_usuario";
+
+    public static function crearActividadesUsuarioBD($datos){
+        $actividades_usuario = new ActividadesUsuario();
+
+        $actividades_usuario->actividades_id = $datos['actividades_id'];
+        $actividades_usuario->usuario_id = $datos['usuario_id'];
+        $actividades_usuario->rol = $datos['rol'];
+
+        $actividades_usuario->save();
+    }
 }

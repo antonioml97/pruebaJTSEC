@@ -5,6 +5,7 @@ use App\Http\Controllers\ProyectosController;
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\ProyectoActividadesController;
 use App\Http\Controllers\ProyectosUsuariosController;
+use App\Http\Controllers\ActividadesUsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,12 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/menu', function () {
-    return view('Menu');
-});
 
 
+//Proyectos
 Route::post('/proyectos/crearProyecto', [ProyectosController::class, 'crearProyecto' ])->name("crearProyecto");
-Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
 Route::post('/proyecto_actividades/crearProyectoActividades', [ProyectoActividadesController::class, 'crearProyectoActividades' ])->name("crearProyectoActividades");
 Route::post('/proyecto_usuario/crearProyectosUsuarios', [ProyectosUsuariosController::class, 'crearProyectosUsuarios' ])->name("crearProyectosUsuarios");
+
+//Activides
+Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
+Route::post('/actividades_usuario/crearActividadesUsuario', [ActividadesUsuarioController::class, 'crearActividadesUsuario' ])->name("crearActividadesUsuario");
+
