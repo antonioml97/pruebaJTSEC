@@ -20,6 +20,7 @@ class ActividadesUsuarioFactory extends Factory
         return [
             'actividades_id' => Actividades::all()->random()->id,
             'usuario_id' => User::all()->random()->id,
+            'rol' => 'Participante'
         ];
     }
 }

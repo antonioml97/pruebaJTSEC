@@ -14,7 +14,6 @@ class ProyectosUsuarios extends Model
 
         $proyectos_usuarios->proyectos_id = $datos['proyectos_id'];
         $proyectos_usuarios->usuarios_id = $datos['usuarios_id'];
-        $proyectos_usuarios->rol = $datos['rol'];
 
         $proyectos_usuarios->save();
     }

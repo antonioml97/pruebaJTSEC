@@ -15,7 +15,6 @@ class ProyectoUsuarioTest extends TestCase
         $test_proyecto_usuario = [
             'proyectos_id' => Proyectos::all()->random()->id,
             'usuarios_id' => User::all()->random()->id,
-            'rol' => 'Participante',
         ];
 
         $response = $this->post( 'http://localhost:8000/proyecto_usuario/crearProyectosUsuarios',  $test_proyecto_usuario );
