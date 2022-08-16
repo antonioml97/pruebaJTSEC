@@ -32,5 +32,8 @@ Route::post('/proyecto_usuario/crearProyectosUsuarios', [ProyectosUsuariosContro
 //Activides
 Route::post('/actividades/crearActividades', [ActividadesController::class, 'crearActividades' ])->name("crearActividades");
 Route::post('/actividades_usuario/crearActividadesUsuario', [ActividadesUsuarioController::class, 'crearActividadesUsuario' ])->name("crearActividadesUsuario");
+Route::post('/actividades_usuario/esPosibleCrear_ActividadesUsuario', [ActividadesUsuarioController::class, 'esPosibleCrear_ActividadesUsuario' ])->name("esPosibleCrear_ActividadesUsuario");
+
+
 Route::post('/actividades_incidencias/crearActividadesIncidencias', [ActividadesIncidenciasController::class, 'crearActividadesIncidencias' ])->name("crearActividadesIncidencias");
 

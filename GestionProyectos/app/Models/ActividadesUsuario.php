@@ -11,11 +11,20 @@ class ActividadesUsuario extends Model
     protected $table = "actividades_usuario";
 
     public static function crearActividadesUsuarioBD($datos){
-        $actividades_usuario = new ActividadesUsuario();
+        $es_posbile = ActividadesUsuario::esPosibleCrear_ActividadesUsuarioBD($datos);
+        if($es_posbile){
+            $actividades_usuario = new ActividadesUsuario();
+    
+            $actividades_usuario->actividades_id = $datos['actividades_id'];
+            $actividades_usuario->usuario_id = $datos['usuarios_id'];
+    
+            $actividades_usuario->save();
+        }
 
-        $actividades_usuario->actividades_id = $datos['actividades_id'];
-        $actividades_usuario->usuario_id = $datos['usuario_id'];
+    }
 
-        $actividades_usuario->save();
+    public static function esPosibleCrear_ActividadesUsuarioBD($datos){
+        $es_posbile = ProyectosUsuarios::comprobarSiExiste_ProyectosUsuariosBD($datos);
+        return $es_posbile;
     }
 }

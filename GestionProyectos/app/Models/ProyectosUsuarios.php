@@ -19,4 +19,19 @@ class ProyectosUsuarios extends Model
 
         $proyectos_usuarios->save();
     }
+
+    public static function comprobarSiExiste_ProyectosUsuariosBD($datos){
+       $existe = false;
+
+       $repeticiones = ProyectosUsuarios::select('proyectos_id')->where('proyectos_id' , '=' , $datos['proyectos_id'] )->where('usuarios_id' , '=' , $datos['usuarios_id'] )->count();
+        if($repeticiones == 0)
+        { 
+            $existe = false;  
+        }
+        else{
+            $existe = true;
+        }   
+
+       return $existe;
+    }
 }

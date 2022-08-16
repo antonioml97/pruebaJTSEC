@@ -12,4 +12,9 @@ class ActividadesUsuarioController extends Controller
     {
         ActividadesUsuario::crearActividadesUsuarioBD($request->all());
     }
+
+    public static function esPosibleCrear_ActividadesUsuario(Request $request)
+    {
+        return ActividadesUsuario::esPosibleCrear_ActividadesUsuarioBD($request->all());
+    }
 }
