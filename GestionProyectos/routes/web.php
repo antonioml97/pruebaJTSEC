@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectosController;
 use App\Http\Controllers\ActividadesController;
-use App\Http\Controllers\ProyectoActividadesController;
 use App\Http\Controllers\ProyectosUsuariosController;
 use App\Http\Controllers\ActividadesUsuarioController;
+use App\Http\Controllers\IncidenciasUsuarioController;
+use App\Http\Controllers\ProyectoActividadesController;
 use App\Http\Controllers\ActividadesIncidenciasController;
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::post('/actividades/crearActividades', [ActividadesController::class, 'cre
 Route::post('/actividades_usuario/crearActividadesUsuario', [ActividadesUsuarioController::class, 'crearActividadesUsuario' ])->name("crearActividadesUsuario");
 Route::post('/actividades_usuario/esPosibleCrear_ActividadesUsuario', [ActividadesUsuarioController::class, 'esPosibleCrear_ActividadesUsuario' ])->name("esPosibleCrear_ActividadesUsuario");
 
-
+//Incidencias
 Route::post('/actividades_incidencias/crearActividadesIncidencias', [ActividadesIncidenciasController::class, 'crearActividadesIncidencias' ])->name("crearActividadesIncidencias");
+Route::post('/incidencias_usuario/crearIncidenciasUsuario', [IncidenciasUsuarioController::class, 'crearIncidenciasUsuario' ])->name("crearIncidenciasUsuario");
+
 
