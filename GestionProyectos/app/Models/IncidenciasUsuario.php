@@ -33,5 +33,10 @@ class IncidenciasUsuario extends Model
 
         $proyectos_actividades->save();
     }
+
+    public static function listarIncidenciasUsuarioBD($datos){
+        $datos = IncidenciasUsuario::where('usuario_id', '=', $datos['usuario_id'] )->get();
+        return $datos;
+    }
 }
 

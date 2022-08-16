@@ -12,4 +12,11 @@ class ProyectosUsuariosController extends Controller
     {
         ProyectosUsuarios::crearProyectosUsuariosBD($request->all());
     }
+
+    public static function listarProyectosUsuario(Request $request)
+    {   
+        $datos =  ProyectosUsuarios::listarProyectosUsuarioBD($request->all()) ;
+        return response()->json(['success' => true, 'datos' => $datos], 200);
+
+    }
 }

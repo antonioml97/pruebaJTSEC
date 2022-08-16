@@ -3,11 +3,14 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Models\User;
 use App\Models\Incidencias;
 use App\Models\ProyectosUsuarios;
+use App\Models\IncidenciasUsuario;
 use App\Models\ProyectosActividades;
 use App\Models\ActividadesIncidencias;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Testing\Fluent\AssertableJson;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class IncidenciasUsuarioTest extends TestCase
@@ -46,5 +49,28 @@ class IncidenciasUsuarioTest extends TestCase
         unset($test_incidencias_usuario['actividades_id']);
         //Compruebo si estan los nuevos datos en la base de datos solo miro usuario_id y actividades_id
         $this->assertDatabaseHas('incidencias_usuario',  $test_incidencias_usuario);
+    }
+
+    public function testListarIncidenciassuario()
+    {           
+        //Busco un usuario
+        $test_incidencias_usuario = [
+            'usuario_id' => IncidenciasUsuario::all()->random()->usuario_id,
+        ];
+        
+          
+        //Lanzo la peticion
+        $response = $this->post( 'http://localhost:8000/incidencias_usuario/listarIncidencias',  $test_incidencias_usuario );
+        
+        $response->assertJson(fn (AssertableJson $json) =>
+            $json->has('success')
+                ->has('datos')
+             
+        );
+        $datos =  $response->json('datos');
+        //Compruebo si estan los datos en la BD
+        for($i = 0 ; $i < count($datos) ; $i++){
+            $this->assertDatabaseHas('incidencias_usuario',  $datos[$i]);
+        }
     }
 }

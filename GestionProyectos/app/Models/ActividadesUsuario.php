@@ -27,4 +27,9 @@ class ActividadesUsuario extends Model
         $es_posbile = ProyectosUsuarios::comprobarSiExiste_ProyectosUsuariosBD($datos);
         return $es_posbile;
     }
+
+    public static function listarActividadesUsuarioBD($datos){
+        $datos = ActividadesUsuario::where('usuario_id' , '=' , $datos['usuario_id'])->get();
+        return $datos;
+    }
 }

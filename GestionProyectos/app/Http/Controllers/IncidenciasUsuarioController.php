@@ -14,4 +14,10 @@ class IncidenciasUsuarioController extends Controller
             IncidenciasUsuario::crearIncidendiasUsuario($request->all());
         }
     }
+
+    public static function listarIncidenciasUsuario(Request $request)
+    {   
+        $datos =  IncidenciasUsuario::listarIncidenciasUsuarioBD($request->all()) ;
+        return response()->json(['success' => true, 'datos' => $datos], 200);
+    }
 }

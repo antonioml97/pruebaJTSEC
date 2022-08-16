@@ -5,12 +5,14 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Actividades;
-use App\Models\ProyectosActividades;
 use App\Models\ProyectosUsuarios;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use App\Models\ActividadesUsuario;
+use App\Models\ProyectosActividades;
 use function PHPUnit\Framework\isEmpty;
+
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Testing\Fluent\AssertableJson;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ActividadesUsuarioTest extends TestCase
 {   
@@ -46,4 +48,28 @@ class ActividadesUsuarioTest extends TestCase
         //Compruebo si estan los nuevos datos en la base de datos solo miro usuario_id y actividades_id
         $this->assertDatabaseHas('actividades_usuario',  $test_actividades_usuario);
     }
+
+    
+    public function testListarActividadesUsuario()
+    {           
+        //Busco un usuario
+        $test_actividades_usuario = [
+            'usuario_id' => ActividadesUsuario::all()->random()->usuario_id,
+        ];
+        
+          
+        //Lanzo la peticion
+        $response = $this->post( 'http://localhost:8000/actividades_usuario/listarActividades',  $test_actividades_usuario );
+        $response->assertJson(fn (AssertableJson $json) =>
+            $json->has('success')
+                ->has('datos')
+             
+        );
+        
+        $datos =  $response->json('datos');
+        //Compruebo si estan los datos en la BD
+        for($i = 0 ; $i < count($datos) ; $i++){
+            $this->assertDatabaseHas('actividades_usuario',  $datos[$i]);
+        }
+    } 
 }

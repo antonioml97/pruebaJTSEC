@@ -34,4 +34,9 @@ class ProyectosUsuarios extends Model
 
        return $existe;
     }
+
+    public static function listarProyectosUsuarioBD($datos){
+        $datos = ProyectosUsuarios::where('usuarios_id' , '=' , $datos['usuario_id'])->get();
+        return $datos;
+    }
 }
