@@ -35,7 +35,7 @@ class ProyectoUsuarioTest extends TestCase
         //Lanzo la peticion
         $response = $this->post( 'http://localhost:8000/proyecto_usuarios/listarProyectos',  $test_actividades_usuario );
         $response->assertStatus(200);
-        /*
+        
         $response->assertJson(fn (AssertableJson $json) =>
             $json->has('success')
                 ->has('datos')
@@ -46,6 +46,6 @@ class ProyectoUsuarioTest extends TestCase
         //Compruebo si estan los datos en la BD
         for($i = 0 ; $i < count($datos) ; $i++){
             $this->assertDatabaseHas('proyectos_usuarios',  $datos[$i]);
-        }*/
+        }
     } 
 }
