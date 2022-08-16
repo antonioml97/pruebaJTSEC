@@ -28,8 +28,8 @@ class ActividadesUsuarioTest extends TestCase
             ];
         
             //Busco un usuario que este en ese proyecto
-            $ProyectoUsuario_Existe = ProyectosUsuarios::select("usuarios_id")->where('proyectos_id' , '=' , $test_actividades_usuario['proyectos_id'] )->count();
-            $ProyectoUsuario = ProyectosUsuarios::select("usuarios_id")->where('proyectos_id' , '=' , $test_actividades_usuario['proyectos_id'] )->first();
+            $ProyectoUsuario_Existe = ProyectosUsuarios::select("usuarios_id")->where('proyectos_id' , '=' , $test_actividades_usuario['proyectos_id'] )->where('rol' , '=' , 'Participante' )->count();
+            $ProyectoUsuario = ProyectosUsuarios::select("usuarios_id")->where('proyectos_id' , '=' , $test_actividades_usuario['proyectos_id'] )->where('rol' , '=' , 'Participante' )->first();
         }while($ProyectoUsuario_Existe <= 0 );
         //Nota: Hay que tener en cuenta que si no exite ninguno dato en las BD que cumpla esto puedo probar un BUCLE INFINITO este test
        

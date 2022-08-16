@@ -23,7 +23,7 @@ class ProyectosUsuarios extends Model
     public static function comprobarSiExiste_ProyectosUsuariosBD($datos){
        $existe = false;
 
-       $repeticiones = ProyectosUsuarios::select('proyectos_id')->where('proyectos_id' , '=' , $datos['proyectos_id'] )->where('usuarios_id' , '=' , $datos['usuarios_id'] )->count();
+       $repeticiones = ProyectosUsuarios::select('proyectos_id')->where('proyectos_id' , '=' , $datos['proyectos_id'] )->where('usuarios_id' , '=' , $datos['usuarios_id'] )->where('rol' , '=' ,  'Participante')->count();
         if($repeticiones == 0)
         { 
             $existe = false;  
